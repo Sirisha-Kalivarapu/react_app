@@ -1,0 +1,22 @@
+{
+  "name": "react_app",
+  "version": "1.0.0",
+  "description": "building react application",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sirisha-Kalivarapu/react_app.git"
+  },
+  "author": "Sirisha Kalivarapu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sirisha-Kalivarapu/react_app/issues"
+  },
+  "homepage": "https://github.com/Sirisha-Kalivarapu/react_app#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
