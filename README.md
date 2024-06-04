@@ -11,3 +11,11 @@
 - Minification (minify our files in production)
 - Bundling (its a bundler)
 - Compressing (compresses the files and ships to production)
+- Consistent Hashing
+- Code splitting
+- Differential Bundling (it supports older versions of browsers)
+- Diagnostic
+- Error Handling 
+- HTTPs
+- Tree Shaking
+- diffrent build for dev and prod bundles 
