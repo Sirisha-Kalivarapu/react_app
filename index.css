@@ -31,13 +31,13 @@
 }
 .restro-card{
     background-color: rgb(241, 239, 239);
-    width: 200px;
-    height: 300px;
+    width: 163px;
+    height: 330px;
     margin: 5px;
     padding: 15px;
 }
 .restro-card>img.logo {
-    width: 200px;
+    width: 163px;
     height: 125px;
 
 }
