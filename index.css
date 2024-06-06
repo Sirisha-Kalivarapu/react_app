@@ -31,14 +31,15 @@
 }
 .restro-card{
     background-color: rgb(241, 239, 239);
-    width: 250px;
-    height: 350px;
-    margin: 2px;
+    width: 200px;
+    height: 300px;
+    margin: 5px;
     padding: 15px;
 }
 .restro-card>img.logo {
-    width: 250px;
+    width: 200px;
     height: 125px;
+
 }
 .restro-card:hover{
     border: 2px solid black;
