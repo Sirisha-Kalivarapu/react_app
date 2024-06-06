@@ -35,13 +35,13 @@ const Header=()=>(<div className="headContainer">
 
 const RestroCard= (props)=> {
     const {restData} = props
-    const {name, cuisines,avgRating, sla} = props
+    const {cloudinaryImageId,name, cuisines,avgRating, sla} = restData;
     console.log({restData})
     return (<div className="restro-card">
-                <img className="logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+restData.cloudinaryImageId}></img>
-                <h3>{restData.name}</h3>
-                <h4>{restData.cuisines.join(", ")}</h4>
-                <h4>{restData.avgRating} star</h4>
+                <img className="logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
+                <h3>{name}</h3>
+                <h4>{cuisines.join(", ")}</h4>
+                <h4>{avgRating} star</h4>
                 <h4>{restData.sla.deliveryTime} minutes</h4>
             </div>)
 }
@@ -1925,8 +1925,12 @@ const restData= {
 const Body= ()=>(<div className="body-container"> 
 <div className="search">Search</div>
 <div className="restro-bar">
-    <RestroCard restData={restList[0].info}/>
-    <RestroCard restData={restList[1].info}/>
+    {restList.map((restObj)=>{
+        return <RestroCard restData={restObj.info} key={restObj.info.id}/>
+    })
+    }
+    {/* <RestroCard restData={restList[0].info}/>
+    <RestroCard restData={restList[1].info}/> */}
 
     {/* <RestroCard/>
     <RestroCard/>
