@@ -1,10 +1,19 @@
 import { RestroCard } from "./RestroCard";
 import { restList } from "../utils/RestroData";
-const Body= ()=>(<div className="body-container"> 
-<div className="search">Search</div>
+import { useState } from "react";
+const Body= ()=>{
+    const [ListOfRestruants,setListOfRestruants]=useState(restList);
+    return(
+<div className="body-container"> 
+<div className="filter">
+    <button className= "topRated-filter" onClick={()=> 
+        {const filteredRestList = ListOfRestruants.filter(obj=>obj.info.avgRating>4.5);
+            setListOfRestruants(filteredRestList)
+        }}>TopRated Restruants</button>
+</div>
 <div className="restro-bar">
-    {restList.map((restObj)=>{
-        return <RestroCard restData={restObj.info} key={restObj.info.id}/>
+    {ListOfRestruants.map((restObj)=>{
+        return <RestroCard restData = {restObj.info} key={restObj.info.id}/>
     })
     }
     {/* <RestroCard restData={restList[0].info}/>
@@ -13,6 +22,6 @@ const Body= ()=>(<div className="body-container">
     
 </div>
 
-</div>)
+</div>)}
 
 export default Body;

@@ -46,6 +46,10 @@
     cursor: pointer;
 
 }
-.search{
+.filter{
     margin: 5px;
+}
+.topRated-filter{
+    margin: 2px;
+    padding: 5px;
 }

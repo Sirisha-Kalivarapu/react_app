@@ -19,3 +19,11 @@
 - HTTPs
 - Tree Shaking
 - diffrent build for dev and prod bundles 
+
+# Types of Exports
+- Named export
+    export const Component;
+    import {Component} from "path";
+
+- Default export
+    export default Component;
