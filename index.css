@@ -29,7 +29,7 @@
     flex-wrap: wrap;
 
 }
-.restro-card{
+.restro-card,.shimmer-card{
     background-color: rgb(241, 239, 239);
     width: 163px;
     height: 330px;
@@ -52,4 +52,8 @@
 .topRated-filter{
     margin: 2px;
     padding: 5px;
+}
+.shimmer-container{
+    display: flex;
+    justify-content: wrap;
 }
