@@ -57,3 +57,6 @@
     display: flex;
     justify-content: wrap;
 }
+.login-button{
+    padding: 8px;
+}
