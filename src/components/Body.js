@@ -1,18 +1,29 @@
 import { RestroCard } from "./RestroCard";
 import { restList } from "../utils/RestroData";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 const Body= ()=>{
-    const [ListOfRestruants,setListOfRestruants]=useState(restList);
+    const [listOfRestaurants,setListOfRestaurants]=useState([]);
+    const fetchData= async()=>{
+        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        const json = await data.json();
+        // console.log(json.data);
+        console.log(json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        console.log(listOfRestaurants);
+
+    }
+    useEffect(()=>{fetchData();},[])
+    // useEffect(fetchData(),[]);
     return(
 <div className="body-container"> 
 <div className="filter">
     <button className= "topRated-filter" onClick={()=> 
-        {const filteredRestList = ListOfRestruants.filter(obj=>obj.info.avgRating>4.5);
-            setListOfRestruants(filteredRestList)
+        {const filteredRestList = listOfRestaurants.filter(obj=>obj.info.avgRating>4.5);
+            setListOfRestaurants(filteredRestList)
         }}>TopRated Restruants</button>
 </div>
 <div className="restro-bar">
-    {ListOfRestruants.map((restObj)=>{
+    {listOfRestaurants.map((restObj)=>{
         return <RestroCard restData = {restObj.info} key={restObj.info.id}/>
     })
     }
