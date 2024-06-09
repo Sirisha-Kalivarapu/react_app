@@ -48,10 +48,12 @@
 }
 .filter{
     margin: 5px;
+    display: flex;
 }
 .topRated-filter{
-    margin: 2px;
-    padding: 5px;
+    margin: 1px;
+    padding: 3px;
+
 }
 .shimmer-container{
     display: flex;
@@ -59,4 +61,17 @@
 }
 .login-button{
     padding: 8px;
+}
+.search{
+    display: flex;
+    margin: 3px;
+    padding: 5px;
+}
+.search-btn{
+    padding: 3px;
+    margin-right: 6px;
+}
+.search-text{
+    padding: 3px;
+    margin: 1px;
 }
