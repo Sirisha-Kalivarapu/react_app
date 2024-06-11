@@ -6,26 +6,32 @@ import About from "./components/About";
 import ContactUs from "./components/ContactUs";
 import Error from "./components/Error";
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 //component composition ,react element in component 
 const App=()=>(<div id ="container">
 <Header></Header>
-<Body/>
+<Outlet />
 </div>
 );
 
 const appRouter= createBrowserRouter([{
   path:"/",
   element: <App/>,
+  children:[
+    {
+      path:"/",
+      element:<Body/>
+    },
+    {
+      path:"/about",
+      element:<About/>
+    },
+    {
+      path:"/contact",
+      element:<ContactUs/>
+    }],
   errorElement:<Error/>
-},
-{
-  path:"/about",
-  element:<About/>
-},
-{
-  path:"/contact",
-  element:<ContactUs/>
 }
 ])
 
