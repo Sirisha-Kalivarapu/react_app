@@ -3,6 +3,7 @@ import { restList } from "../utils/RestroData";
 import { useState,useEffect } from "react";
 import { SWIGGY_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 const Body= ()=>{
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
     const [filteredRestruants, setFilteredRestaurants]= useState([]);
@@ -45,7 +46,8 @@ const Body= ()=>{
 </div>
 <div className="restro-bar">
     {filteredRestruants.map((restObj)=>{
-        return <RestroCard restData = {restObj.info} key={restObj.info.id}/>
+        // console.log(restObj.info.id);
+        return  (<Link to={"/restaurants/"+restObj.info.id} key={restObj.info.id}><RestroCard restData = {restObj.info} /></Link>)
     })
     }
     {/* <RestroCard restData={restList[0].info}/>
