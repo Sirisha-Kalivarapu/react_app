@@ -27,3 +27,12 @@
 
 - Default export
     export default Component;
+
+# React Hooks
+    (Normal JS Utility Functions)
+    - useState() used to superpowerful react variables 
+    - useEffect()
+
+# 2  Types of Routing
+    - Client Side Routing
+    - Server Site Routing
