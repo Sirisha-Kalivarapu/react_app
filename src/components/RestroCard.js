@@ -2,7 +2,7 @@ import { Cloudnary_URL } from "../utils/constants";
 const RestroCard= (props)=> {
     const {restData} = props
     const {cloudinaryImageId,name, cuisines,avgRating, sla} = restData;
-    console.log({restData})
+    // console.log({restData})
     return (<div className="restro-card">
                 <img className="logo" src={Cloudnary_URL+cloudinaryImageId}></img>
                 <h3>{name}</h3>
