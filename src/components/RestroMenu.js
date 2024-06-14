@@ -1,34 +1,37 @@
 import { useState,useEffect } from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { Menu_URl } from "../utils/constants";
+import useRestroMenu from "../utils/useRestroMenu";
 
 
 const RestroMenu= ()=>{
 
-const [restroMenu,setRestroMenu]=useState(null);
+// const [restroInfo,setRestroMenu]=useState(null);
 const [restroData,setRestroData]=useState([]);
 const {resId}= useParams();
 
-const fetchData=async ()=>{
-    const data=await fetch(Menu_URl+resId);
-    const json = await data.json();
+const restroInfo =useRestroMenu(resId);
 
-    console.log(json.data.cards[2].card.card.info);
-    console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
-    
-    setRestroMenu(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
-    setRestroData(json.data?.cards[2]?.card?.card);
-}
-    useEffect(()=>{
-        fetchData();
-    },[])
-    
+// const fetchData=async ()=>{
+//     const data=await fetch(Menu_URl+resId);
+//     const json = await data.json();
 
-    if (restroMenu===null)
+//     console.log(json.data.cards[2].card.card.info);
+//     console.log(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
+    
+//     setRestroMenu(json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
+//     setRestroData(json.data?.cards[2]?.card?.card);
+// }
+//     useEffect(()=>{
+//         fetchData();
+//     },[])
+
+    // setRestroMenu(useRestroMenu(resId));
+
+    if (restroInfo===null)
         return <Shimmer/>
-    const {name, cuisines, costForTwo}= restroData?.info;
-    
+    const {name, cuisines, costForTwo}= restroInfo?.cards[2]?.card?.card.info;
+    const {itemCards} =restroInfo?.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
     return (
         <div className="restro-menu-container">
 
@@ -36,7 +39,7 @@ const fetchData=async ()=>{
             <p>{cuisines.join(", ")} - Rs. {costForTwo/100} for two</p>
             <h2>Menu</h2>
             <ul>
-            {restroMenu.map(item=> {return(
+            {itemCards.map(item=> {return(
                 <li key={item?.card?.info?.id}>{item?.card?.info?.name} - Rs. {item?.card?.info?.defaultPrice?item?.card?.info?.defaultPrice/100:item?.card?.info?.price/100}</li>
             )})}
             </ul>
