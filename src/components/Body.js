@@ -28,25 +28,25 @@ const Body= ()=>{
         
     return(
 <div className="body-container"> 
-<div className="filter">
-    <div className="Search">
-        <input type="text" className="search-text" value={searchText} onChange={(a)=> 
+<div className="flex">
+    <div className="m-2 p-2 ">
+        <input type="text" className=" border rounded border-lg border-black" value={searchText} onChange={(a)=> 
         {
             if(a.target.value.length==0){
             setFilteredRestaurants(listOfRestaurants);}
             setSearchText(a.target.value);
         }}
         ></input>
-        <button className="search-btn" onClick={()=> searchText.length===0?setFilteredRestaurants(listOfRestaurants):setFilteredRestaurants(listOfRestaurants.filter(obj=> obj.info.name.toLowerCase().includes(searchText.toLowerCase())))
+        <button className="border rounded border-lg px-2 bg-indigo-300" onClick={()=> searchText.length===0?setFilteredRestaurants(listOfRestaurants):setFilteredRestaurants(listOfRestaurants.filter(obj=> obj.info.name.toLowerCase().includes(searchText.toLowerCase())))
 
         }>search</button>
     </div>
-    <button className= "topRated-filter" onClick={()=> 
+    <button className= "border rounded border-lg bg-gray-200" onClick={()=> 
         {const filteredRestList = listOfRestaurants.filter(obj=>obj.info.avgRating>4.5);
             setListOfRestaurants(filteredRestList)
         }}>TopRated Restruants</button>
 </div>
-<div className="restro-bar">
+<div className="flex flex-wrap">
     {filteredRestruants.map((restObj)=>{
         // console.log(restObj.info.id);
         return  (<Link to={"/restaurants/"+restObj.info.id} key={restObj.info.id}><RestroCard restData = {restObj.info} /></Link>)
