@@ -6,19 +6,19 @@ const Header=()=>{
     const [btnName,setBtnName]=useState('Login');
     const onlineStatus= useOnlineStatus();
     // console.log(onlineStatus);
-    return (<div className="headContainer">
-    <div className= "logo-container">
-        <img className="logo" src= {LOGO_URL}></img>
+    return (<div className="flex justify-between m-2 bg-indigo-100 shadow-md">
+    <div >
+        <img className="m-1 w-13 h-20" src= {LOGO_URL}></img>
     </div>
-    <div className="nav-items">
-        <ul>
-            <li>Online: {onlineStatus==true? "✅":"🔴"}</li>
-            <li><Link to={"/"}>Home</Link></li>
-            <li><Link to={"/about"}>AboutUs</Link></li>
-            <li><Link to={"/contact"}>ContactUs</Link></li>
-            <li><Link to={"/Grocery"}>Grocery</Link></li>
-            <li>Cart</li>
-            <button className="login-button" onClick={()=>{btnName==="Login"?setBtnName("Logout"):setBtnName("Login");
+    <div className="flex items-center">
+        <ul className="flex  p-5 m-2">
+            <li className="px-3">Online: {onlineStatus==true? "✅":"🔴"}</li>
+            <li className="px-3"><Link to={"/"}>Home</Link></li>
+            <li className="px-3"><Link to={"/about"}>AboutUs</Link></li>
+            <li className="px-3"><Link to={"/contact"}>ContactUs</Link></li>
+            <li className="px-3"><Link to={"/Grocery"}>Grocery</Link></li>
+            <li className="px-3">Cart</li>
+            <button className="rounded-lg px-3 border-2 bg-indigo-400" onClick={()=>{btnName==="Login"?setBtnName("Logout"):setBtnName("Login");
             }}>{btnName}</button>
 
         </ul>
