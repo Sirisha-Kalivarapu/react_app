@@ -1,4 +1,4 @@
-import { RestroCard } from "./RestroCard";
+import { RestroCard, promotedRestroCard } from "./RestroCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -25,7 +25,9 @@ const Body= ()=>{
     if(listOfRestaurants.length===0){
         return <Shimmer />;
     }
-        
+
+    const OpenRestaurant= promotedRestroCard(RestroCard);
+
     return(
 <div className="body-container"> 
 <div className="flex">
@@ -49,7 +51,8 @@ const Body= ()=>{
 <div className="flex flex-wrap">
     {filteredRestruants.map((restObj)=>{
         // console.log(restObj.info.id);
-        return  (<Link to={"/restaurants/"+restObj.info.id} key={restObj.info.id}><RestroCard restData = {restObj.info} /></Link>)
+        return  (
+        <Link to={"/restaurants/"+restObj.info.id} key={restObj.info.id}>{restObj.info.isOpen?<OpenRestaurant restData={restObj.info} />:<RestroCard restData = {restObj.info} />}</Link>)
     })
     }
     {/* <RestroCard restData={restList[0].info}/>
