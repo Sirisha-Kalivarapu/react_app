@@ -10,6 +10,9 @@ const RestroMenu= ()=>{
 // const [restroInfo,setRestroMenu]=useState(null);
 const [restroData,setRestroData]=useState([]);
 const {resId}= useParams();
+const [showIndex,setShowIndex]=useState(1);
+const [showItems,setShowItems]=useState(false);
+
 
 const restroInfo =useRestroMenu(resId);
 
@@ -44,7 +47,8 @@ const restroInfo =useRestroMenu(resId);
             <h1 className="font-bold text-2xl my-3">{name}</h1>
             <p className="font-bold text-lg">{cuisines.join(", ")} - Rs. {costForTwo/100} for two</p>
             {
-                categories.map((category)=> <RestroCategory  key ={category.card.card.title} data={category.card.card}/>)
+                categories.map((category,index)=> <RestroCategory  key ={category.card.card.title} data={category.card.card } showItems={index==showIndex?(true):false}
+                setShowIndex={()=>setShowIndex(index)}/>)
             }
             {/* <h2>Menu</h2>
             <ul>
