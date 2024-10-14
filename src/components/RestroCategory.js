@@ -1,13 +1,13 @@
 import { ItemList } from "./ItemList";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const RestroCategory=({data, showItems, setShowIndex})=>{
     console.log(data);
     const {title}= data;
-    const [showItems,setShowItems]=useState(false);
+    // const [showItems,setShowItems]=useState(false);
     const handleClick= ()=>{
         // console.log("clicked"+ showItems);
-        setShowItems(!showItems);
+        // setShowItems(!showItems);
         setShowIndex();
     };
 

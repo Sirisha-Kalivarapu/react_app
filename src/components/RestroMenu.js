@@ -11,7 +11,7 @@ const RestroMenu= ()=>{
 const [restroData,setRestroData]=useState([]);
 const {resId}= useParams();
 const [showIndex,setShowIndex]=useState(1);
-const [showItems,setShowItems]=useState(false);
+// const [showItems,setShowItems]=useState(false);
 
 
 const restroInfo =useRestroMenu(resId);
